@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nabeel Ashraf — UK-based civil and architectural designer with 5 years of UK industry experience, specialising in residential drawings, extensions, loft conversions, HMO and flat conversions, lease plans and more." />
+  <meta name="theme-color" content="#0b1016" />
+  <title>Nabeel Ashraf | Civil & Architectural Design</title>
+  <style>
+    :root{
+      --bg:#081017;
+      --bg-2:#0c151d;
+      --panel:#111c25;
+      --panel-2:#16232e;
+      --text:#f4f7f8;
+      --muted:#9eacb7;
+      --line:rgba(255,255,255,.10);
+      --accent:#b9ff66;
+      --accent-2:#84e6ff;
+      --max:1240px;
+      --radius:26px;
+      --shadow:0 24px 70px rgba(0,0,0,.28);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    img{display:block;width:100%}
+    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#d6e0e6;font-weight:750}
+    .eyebrow:before{content:"";width:28px;height:1px;background:var(--accent)}
+    .section{padding:110px 0}
+    .section-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:54px;align-items:end;margin-bottom:48px}
+    .section-title{font-size:clamp(2.45rem,5vw,5rem);line-height:.95;letter-spacing:-.06em;margin:10px 0 0;font-weight:750}
+    .section-copy{color:var(--muted);font-size:1.02rem;max-width:620px;margin:0 0 5px auto}
+
+    /* navigation */
+    .nav-wrap{position:fixed;inset:18px 0 auto;z-index:50;pointer-events:none}
+    nav{pointer-events:auto;width:min(calc(100% - 36px),var(--max));margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 14px 12px 18px;border:1px solid rgba(255,255,255,.09);background:rgba(8,16,23,.72);backdrop-filter:blur(18px);border-radius:999px;box-shadow:0 14px 40px rgba(0,0,0,.20)}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:780;letter-spacing:-.02em}
+    .mark{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;background:linear-gradient(135deg,rgba(185,255,102,.15),rgba(132,230,255,.08));font-size:.78rem;color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:27px;font-size:.9rem;color:#cbd5da}
+    .nav-links a:hover{color:white}
+    .nav-cta{padding:10px 17px;border-radius:999px;background:var(--accent);color:#071008;font-weight:800;font-size:.88rem}
+    .menu{display:none;background:none;border:0;color:white;font-size:1.5rem}
+
+    /* hero */
+    .hero{min-height:100svh;display:flex;align-items:center;position:relative;padding:150px 0 70px;isolation:isolate}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-3;background:
+      linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+      background-size:64px 64px;mask-image:linear-gradient(to bottom,black 0%,black 62%,transparent 96%)}
+    .hero:after{content:"";position:absolute;width:700px;height:700px;border-radius:50%;right:-230px;top:-180px;z-index:-2;background:radial-gradient(circle,rgba(132,230,255,.12),transparent 68%);filter:blur(12px)}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center}
+    .location-pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:rgba(255,255,255,.035);padding:8px 13px;border-radius:999px;color:#dce5e9;font-size:.85rem;margin-bottom:26px}
+    .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(185,255,102,.09)}
+    h1{font-size:clamp(4.2rem,8.2vw,8.4rem);line-height:.83;letter-spacing:-.075em;margin:0;font-weight:760}
+    .outline{color:transparent;-webkit-text-stroke:1px rgba(244,247,248,.52)}
+    .hero-copy{max-width:720px;color:#b7c2c9;font-size:clamp(1rem,1.4vw,1.2rem);margin:32px 0 30px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 19px;border-radius:14px;border:1px solid var(--line);font-weight:750;transition:.25s ease}
+    .btn-primary{background:var(--accent);color:#071008;border-color:transparent}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 13px 30px rgba(185,255,102,.16)}
+    .btn-secondary:hover{background:rgba(255,255,255,.05);transform:translateY(-2px)}
+    .hero-card{position:relative;min-height:560px;border-radius:34px;border:1px solid var(--line);overflow:hidden;background:
+       radial-gradient(circle at 72% 24%,rgba(185,255,102,.18),transparent 24%),
+       linear-gradient(145deg,#14222c,#0c141b 58%);box-shadow:var(--shadow)}
+    .hero-card:before{content:"";position:absolute;inset:6%;border:1px solid rgba(255,255,255,.08);border-radius:26px}
+    .blueprint{position:absolute;inset:10% 8% 14%;opacity:.78}
+    .bp-line{position:absolute;border:1px solid rgba(174,220,233,.38)}
+    .bp1{left:8%;top:17%;width:62%;height:52%}
+    .bp2{left:34%;top:30%;width:52%;height:46%}
+    .bp3{left:18%;top:4%;width:29%;height:20%}
+    .bp4{left:57%;top:16%;width:22%;height:18%}
+    .bp-line:before,.bp-line:after{content:"";position:absolute;background:rgba(185,255,102,.55)}
+    .bp1:before{height:1px;width:126%;left:-13%;top:53%}
+    .bp1:after{width:1px;height:125%;top:-12%;left:45%}
+    .bp2:before{height:1px;width:118%;left:-9%;top:26%}
+    .bp2:after{width:1px;height:118%;top:-9%;left:68%}
+    .card-label{position:absolute;left:28px;bottom:27px}
+    .card-label small{color:var(--muted);text-transform:uppercase;letter-spacing:.13em}
+    .card-label strong{display:block;font-size:1.25rem;margin-top:4px}
+    .hero-badge{position:absolute;right:24px;top:24px;width:118px;height:118px;border-radius:50%;border:1px solid rgba(255,255,255,.13);display:grid;place-items:center;text-align:center;background:rgba(8,16,23,.65);backdrop-filter:blur(10px);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:#dfe7ea;animation:float 5s ease-in-out infinite}
+    @keyframes float{50%{transform:translateY(10px)}}
+    .mini-stats{position:absolute;right:24px;bottom:24px;display:flex;gap:8px}
+    .mini-stat{background:rgba(8,16,23,.73);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:15px;padding:12px 14px;min-width:92px}
+    .mini-stat b{display:block;font-size:1.3rem;color:var(--accent)}
+    .mini-stat span{font-size:.72rem;color:var(--muted)}
+
+    /* strip */
+    .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:#0a131a}
+    .ticker{display:flex;width:max-content;gap:34px;padding:18px 0;animation:ticker 27s linear infinite;color:#bbc6cc;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem}
+    .ticker span{display:flex;gap:34px;align-items:center}
+    .ticker i{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block}
+    @keyframes ticker{to{transform:translateX(-50%)}}
+
+    /* about */
+    .about-card,.feature-card,.service-card,.process-card,.contact-card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.018));border-radius:var(--radius)}
+    .about-profile-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:22px;align-items:stretch}
+    .profile-card{position:relative;min-height:610px;overflow:hidden;border:1px solid var(--line);border-radius:32px;background:linear-gradient(160deg,#182630,#0c151c);box-shadow:var(--shadow)}
+    .profile-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 12%,rgba(185,255,102,.16),transparent 26%),linear-gradient(to top,rgba(5,10,14,.92) 0%,transparent 46%);z-index:1;pointer-events:none}
+    .profile-card:after{content:"";position:absolute;inset:18px;border:1px solid rgba(255,255,255,.08);border-radius:24px;z-index:2;pointer-events:none}
+    .profile-card img{height:100%;min-height:610px;object-fit:cover;object-position:center top;filter:saturate(.9) contrast(1.02)}
+    .profile-overlay{position:absolute;z-index:3;left:34px;right:34px;bottom:31px;display:flex;align-items:end;justify-content:space-between;gap:18px}
+    .profile-name small{display:block;color:#b3c0c7;text-transform:uppercase;letter-spacing:.13em;font-size:.7rem;margin-bottom:4px}.profile-name strong{font-size:1.45rem;letter-spacing:-.03em}
+    .experience-badge{width:106px;height:106px;flex:0 0 106px;border-radius:50%;display:grid;place-items:center;text-align:center;background:var(--accent);color:#071008;box-shadow:0 16px 38px rgba(185,255,102,.18)}
+    .experience-badge b{display:block;font-size:2rem;line-height:.9;letter-spacing:-.05em}.experience-badge span{display:block;margin-top:7px;font-size:.63rem;line-height:1.18;font-weight:850;text-transform:uppercase;letter-spacing:.08em}
+    .about-main{padding:44px;min-height:610px;display:flex;flex-direction:column;justify-content:space-between}
+    .about-intro{font-size:clamp(1.6rem,3vw,3rem);line-height:1.12;letter-spacing:-.045em;margin:0;color:#edf3f5}
+    .about-intro span{color:#91a1ab}
+    .about-body{max-width:690px;color:var(--muted);font-size:1rem;margin:30px 0 0}
+    .about-highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:32px}
+    .about-highlight{padding:15px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.025)}
+    .about-highlight b{display:block;color:#f2f6f7;font-size:.93rem}.about-highlight span{display:block;color:var(--muted);font-size:.75rem;margin-top:3px}
+    .signature{display:flex;justify-content:space-between;align-items:end;gap:30px;border-top:1px solid var(--line);padding-top:24px;margin-top:34px}
+    .signature b{font-size:1.1rem}.signature small{display:block;color:var(--muted);margin-top:3px}
+    .signature .code{font-family:ui-monospace,monospace;color:var(--accent);font-size:.78rem}
+    .about-side{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
+    .feature-card{padding:24px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s ease}
+    .feature-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.045)}
+    .feature-icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;border:1px solid var(--line);color:var(--accent);font-size:1.15rem}
+    .feature-card h3{margin:18px 0 8px;font-size:1.08rem}.feature-card p{margin:0;color:var(--muted);font-size:.88rem}
+
+    /* services */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service-card{padding:25px;min-height:285px;position:relative;overflow:hidden;transition:.28s ease}
+    .service-card:hover{transform:translateY(-5px);border-color:rgba(185,255,102,.34)}
+    .service-num{font-family:ui-monospace,monospace;color:#71808a;font-size:.77rem}
+    .service-card h3{font-size:1.45rem;letter-spacing:-.03em;margin:48px 0 8px}
+    .service-card p{color:var(--muted);margin:0;font-size:.93rem;max-width:90%}
+    .service-arrow{position:absolute;right:22px;top:22px;border:1px solid var(--line);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;transition:.25s ease}
+    .service-card:hover .service-arrow{background:var(--accent);color:#071008;transform:rotate(45deg)}
+    .service-card:after{content:"";position:absolute;width:150px;height:150px;border:1px solid rgba(255,255,255,.05);border-radius:50%;right:-63px;bottom:-63px}
+
+    /* work */
+    .work-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+    .work-card{position:relative;min-height:430px;border-radius:30px;overflow:hidden;border:1px solid var(--line);background:#111b23}
+    .work-card.small{min-height:205px}
+    .work-image{position:absolute;inset:0;background:linear-gradient(135deg,#dbe1e3,#f7f8f8);overflow:hidden}
+    .work-image img{height:100%;object-fit:cover;filter:grayscale(1) contrast(.9);opacity:.9;transition:.5s ease}
+    .work-card:hover img{transform:scale(1.035);filter:grayscale(.65) contrast(.95)}
+    .work-image:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,9,13,.92),transparent 60%)}
+    .work-meta{position:absolute;left:25px;right:25px;bottom:22px;z-index:2;display:flex;justify-content:space-between;align-items:end;gap:24px}
+    .work-meta small{color:#c5d0d5}.work-meta h3{font-size:1.35rem;margin:3px 0 0}
+    .work-tag{border:1px solid rgba(255,255,255,.18);background:rgba(8,16,23,.55);backdrop-filter:blur(8px);padding:7px 11px;border-radius:999px;font-size:.72rem;white-space:nowrap}
+    .work-stack{display:grid;gap:20px}
+
+    /* process */
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .process-card{padding:27px;min-height:260px}
+    .process-card .step{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#081017;font-weight:850}
+    .process-card h3{margin:55px 0 8px;font-size:1.18rem}.process-card p{margin:0;color:var(--muted);font-size:.9rem}
+
+    /* contact */
+    .contact-shell{position:relative;border-radius:38px;overflow:hidden;border:1px solid var(--line);background:
+      radial-gradient(circle at 80% 0%,rgba(185,255,102,.17),transparent 27%),
+      linear-gradient(135deg,#14212b,#0a1118);padding:58px}
+    .contact-shell:after{content:"";position:absolute;right:-140px;bottom:-190px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(255,255,255,.08)}
+    .contact-grid{display:grid;grid-template-columns:1fr .85fr;gap:58px;position:relative;z-index:2}
+    .contact-title{font-size:clamp(3rem,6vw,6.7rem);letter-spacing:-.065em;line-height:.88;margin:15px 0 24px}
+    .contact-left p{color:#aebbc2;max-width:560px}
+    .contact-details{display:flex;gap:11px;flex-wrap:wrap;margin-top:28px}
+    .detail-pill{border:1px solid var(--line);background:rgba(255,255,255,.035);padding:10px 13px;border-radius:12px;font-size:.85rem}
+    .contact-form{display:grid;gap:12px}
+    .contact-form input,.contact-form textarea{width:100%;border:1px solid var(--line);background:rgba(5,11,15,.52);color:white;border-radius:14px;padding:15px 16px;outline:none}
+    .contact-form textarea{min-height:145px;resize:vertical}
+    .contact-form input:focus,.contact-form textarea:focus{border-color:rgba(185,255,102,.45)}
+    .form-note{font-size:.75rem;color:#83919b;margin-top:2px}
+    .send{border:0;cursor:pointer;width:100%;padding:15px;border-radius:14px;background:var(--accent);color:#071008;font-weight:850}
+
+    footer{padding:35px 0 45px;color:#80909a;font-size:.84rem}
+    .footer-flex{display:flex;justify-content:space-between;gap:30px;border-top:1px solid var(--line);padding-top:25px}
+    .footer-links{display:flex;gap:18px}
+
+    .reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.8,.2,1)}
+    .reveal.show{opacity:1;transform:none}
+
+    @media (max-width: 980px){
+      .nav-links{display:none}.menu{display:block}.nav-cta{display:none}
+      .hero-grid,.section-head,.about-profile-grid,.contact-grid{grid-template-columns:1fr}
+      .hero{padding-top:130px}.hero-card{min-height:430px}
+      .section-copy{margin-left:0}.services-grid{grid-template-columns:1fr 1fr}.process-grid{grid-template-columns:1fr 1fr}.work-grid{grid-template-columns:1fr}.about-side{grid-template-columns:1fr 1fr}.profile-card,.about-main{min-height:540px}.profile-card img{min-height:540px}
+      .mobile-nav{display:none;position:fixed;top:82px;left:18px;right:18px;background:#0d171f;border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:var(--shadow)}
+      .mobile-nav.open{display:grid}.mobile-nav a{padding:13px;border-bottom:1px solid var(--line)}.mobile-nav a:last-child{border:0}
+    }
+    @media (max-width: 650px){
+      .container{width:min(calc(100% - 26px),var(--max))}.section{padding:78px 0}.services-grid,.process-grid,.about-side,.about-highlights{grid-template-columns:1fr}
+      h1{font-size:clamp(4rem,20vw,6.5rem)}.hero-card{min-height:360px}.mini-stats{left:18px;right:auto}.hero-badge{width:92px;height:92px;font-size:.62rem}.about-main{padding:27px;min-height:auto}.profile-card,.profile-card img{min-height:500px}.profile-overlay{left:24px;right:24px;bottom:24px}.experience-badge{width:88px;height:88px;flex-basis:88px}.experience-badge b{font-size:1.65rem}.contact-shell{padding:30px 22px;border-radius:28px}.footer-flex{flex-direction:column}.footer-links{flex-wrap:wrap}.section-head{gap:25px}.work-card{min-height:340px}.contact-title{font-size:3.5rem}
+    }
+    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav>
+      <a class="brand" href="#home"><span class="mark">S/L</span><span>Scale & Line Studio</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a>
+      </div>
+      <a class="nav-cta" href="#contact">Start a project ↗</a>
+      <button class="menu" id="menuBtn" aria-label="Open navigation">☰</button>
+    </nav>
+    <div class="mobile-nav" id="mobileNav"><a href="#about">About</a><a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="location-pill"><span class="pulse"></span> UK-based civil & architectural design</div>
+          <h1>Precise<br><span class="outline">spaces.</span><br>Better living.</h1>
+          <p class="hero-copy">UK residential design and technical drawing support by Nabeel Ashraf — backed by 5 years of UK industry experience and a practical, buildable approach to architectural problem-solving.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work">Explore selected work <span>↘</span></a>
+            <a class="btn btn-secondary" href="https://wa.me/923053581141" target="_blank" rel="noopener">WhatsApp Nabeel ↗</a>
+          </div>
+        </div>
+        <div class="hero-card reveal">
+          <div class="blueprint" aria-hidden="true"><span class="bp-line bp1"></span><span class="bp-line bp2"></span><span class="bp-line bp3"></span><span class="bp-line bp4"></span></div>
+          <div class="hero-badge">Measured<br>designed<br>resolved</div>
+          <div class="card-label"><small>Residential design portfolio</small><strong>Nabeel Ashraf</strong></div>
+          <div class="mini-stats"><div class="mini-stat"><b>5</b><span>Years UK experience</span></div><div class="mini-stat"><b>9</b><span>Core services</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="strip" aria-hidden="true"><div class="ticker"><span>Extensions <i></i> Loft conversions <i></i> HMO conversions <i></i> Flat conversions <i></i> Lease plans <i></i> Garden rooms <i></i> Outbuildings <i></i> AutoCAD drawings <i></i></span><span>Extensions <i></i> Loft conversions <i></i> HMO conversions <i></i> Flat conversions <i></i> Lease plans <i></i> Garden rooms <i></i> Outbuildings <i></i> AutoCAD drawings <i></i></span></div></div>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">About Me</span><h2 class="section-title">Engineering logic.<br>Architectural clarity.</h2></div>
+          <p class="section-copy">Five years of UK industry experience shaped around residential design, accurate technical drawings, practical site awareness and clear project coordination.</p>
+        </div>
+        <div class="about-profile-grid">
+          <figure class="profile-card reveal">
+            <img src="https://static.wixstatic.com/media/b3382c_f1a8e2d421f64875bf7221f07c574a8e~mv2.png/v1/fill/w_706,h_968,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ChatGPT%20Image%20Jun%2015%2C%202026%2C%2010_26_23%20PM.png" alt="Nabeel Ashraf, civil and architectural designer" referrerpolicy="no-referrer" />
+            <figcaption class="profile-overlay">
+              <div class="profile-name"><small>Civil & Architectural Designer</small><strong>Nabeel Ashraf</strong></div>
+              <div class="experience-badge"><div><b>5</b><span>Years in UK<br>industry</span></div></div>
+            </figcaption>
+          </figure>
+          <article class="about-card about-main reveal">
+            <div>
+              <p class="about-intro">I turn residential ideas into <span>clear, practical and professionally presented drawings.</span></p>
+              <p class="about-body">I’m Nabeel Ashraf, a UK-based civil and architectural designer with 5 years of experience in the UK industry. My work covers residential extensions, loft and property conversions, lease plans, outbuildings, garden rooms and technical 2D drawing packages. I combine AutoCAD expertise with hands-on understanding of site conditions so each design is considered from both a drawing and construction perspective.</p>
+              <div class="about-highlights">
+                <div class="about-highlight"><b>UK Residential</b><span>Industry-focused experience</span></div>
+                <div class="about-highlight"><b>AutoCAD</b><span>2D technical drawing</span></div>
+                <div class="about-highlight"><b>Site Aware</b><span>Practical project thinking</span></div>
+              </div>
+            </div>
+            <div class="signature"><div><b>Nabeel Ashraf</b><small>Civil & Architectural Design</small></div><div class="code">5 YEARS / UK</div></div>
+          </article>
+        </div>
+        <div class="about-side">
+          <article class="feature-card reveal"><div class="feature-icon">⌗</div><div><h3>AutoCAD & 2D Drawing</h3><p>Floor plans, elevations, roof plans, annotations, dimensions and professional drawing layouts.</p></div></article>
+          <article class="feature-card reveal"><div class="feature-icon">⌂</div><div><h3>Residential Focus</h3><p>UK-focused design support for extensions, lofts, conversions, garden rooms and related projects.</p></div></article>
+          <article class="feature-card reveal"><div class="feature-icon">◇</div><div><h3>Site-Aware Thinking</h3><p>Practical project and supervision experience connects technical drawings with real construction conditions.</p></div></article>
+          <article class="feature-card reveal"><div class="feature-icon">↗</div><div><h3>Clear Communication</h3><p>Organised project flow, measured requirements and drawing sets designed for easier review and coordination.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Capabilities</span><h2 class="section-title">Residential design,<br>from line to space.</h2></div>
+          <p class="section-copy">A focused set of drawing and design services for homeowners, property professionals and residential development projects.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card reveal"><span class="service-num">01</span><span class="service-arrow">↗</span><h3>House Extensions</h3><p>Rear, side, single-storey and two-storey extension design concepts and drawing packages.</p></article>
+          <article class="service-card reveal"><span class="service-num">02</span><span class="service-arrow">↗</span><h3>Loft Conversions</h3><p>Dormer and roof-space conversion layouts designed to improve usable space, headroom and function.</p></article>
+          <article class="service-card reveal"><span class="service-num">03</span><span class="service-arrow">↗</span><h3>Flat Conversions</h3><p>Clear residential layouts supporting the reconfiguration of properties into self-contained accommodation.</p></article>
+          <article class="service-card reveal"><span class="service-num">04</span><span class="service-arrow">↗</span><h3>HMO Conversions</h3><p>Spatial planning and drawing support for shared residential accommodation and room layouts.</p></article>
+          <article class="service-card reveal"><span class="service-num">05</span><span class="service-arrow">↗</span><h3>Land / New House</h3><p>Early-stage site planning and residential design drawings for adjacent land or new-house opportunities.</p></article>
+          <article class="service-card reveal"><span class="service-num">06</span><span class="service-arrow">↗</span><h3>Lease Plans</h3><p>Measured plans prepared to communicate ownership, occupation and tenancy extents clearly.</p></article>
+          <article class="service-card reveal"><span class="service-num">07</span><span class="service-arrow">↗</span><h3>Outbuildings</h3><p>Design drawings for ancillary spaces such as storage, recreation, studios and supporting accommodation.</p></article>
+          <article class="service-card reveal"><span class="service-num">08</span><span class="service-arrow">↗</span><h3>Garden Rooms</h3><p>Functional garden-space concepts for home working, recreation, studios and flexible everyday use.</p></article>
+          <article class="service-card reveal"><span class="service-num">09</span><span class="service-arrow">↗</span><h3>Technical Drawings</h3><p>Professional 2D floor plans, elevations, roof plans, dimensions, hatching, annotation and print layouts.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Selected work</span><h2 class="section-title">Drawings that make<br>ideas tangible.</h2></div>
+          <p class="section-copy">A selection of the residential drawing categories represented in the existing portfolio, presented in a more visual, project-led format.</p>
+        </div>
+        <div class="work-grid">
+          <article class="work-card reveal">
+            <div class="work-image"><img loading="lazy" src="https://static.wixstatic.com/media/b3382c_5cc4933e4e0c443984e63c85565e0119~mv2.jpeg/v1/crop/x_0%2Cy_338%2Cw_9934%2Ch_6341/fill/w_1200%2Ch_780%2Cal_c%2Cq_88/1-SINGLE%20STOREY%20REAR%20EXTENSIONPDFs_jpg.jpeg" alt="Residential rear extension technical drawing" /></div>
+            <div class="work-meta"><div><small>Residential / Technical drawing</small><h3>Rear Extension Study</h3></div><span class="work-tag">Plans + elevations</span></div>
+          </article>
+          <div class="work-stack">
+            <article class="work-card small reveal"><div class="work-image"><img loading="lazy" src="https://static.wixstatic.com/media/b3382c_f2c0806c1ab341e2b2a00e9cd678d307~mv2.jpeg/v1/crop/x_0%2Cy_338%2Cw_9934%2Ch_6341/fill/w_1000%2Ch_520%2Cal_c%2Cq_88/%282%29-FRONT%20AND%20REAR%20DORMER%20PDFs_jpg.jpeg" alt="Dormer loft conversion drawings" /></div><div class="work-meta"><div><small>Loft conversion</small><h3>Dormer Study</h3></div><span class="work-tag">Roof space</span></div></article>
+            <article class="work-card small reveal"><div class="work-image"><img loading="lazy" src="https://static.wixstatic.com/media/b3382c_0de10188efef4592aed752f0979f9513~mv2.jpeg/v1/crop/x_0%2Cy_338%2Cw_9934%2Ch_6341/fill/w_1000%2Ch_520%2Cal_c%2Cq_88/5-HMO%20CONVERSION_jpg.jpeg" alt="HMO conversion floor plan drawings" /></div><div class="work-meta"><div><small>Residential conversion</small><h3>HMO Layout Study</h3></div><span class="work-tag">Space planning</span></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Working process</span><h2 class="section-title">Simple process.<br>Clear outputs.</h2></div>
+          <p class="section-copy">A project workflow designed around clarity: understand the brief, develop the space, refine the technical detail and deliver an organised drawing set.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-card reveal"><span class="step">1</span><h3>Brief & Requirements</h3><p>Define the property, goals, available information, priorities and the drawing output required.</p></article>
+          <article class="process-card reveal"><span class="step">2</span><h3>Layout Development</h3><p>Explore the arrangement of spaces, circulation, dimensions and practical design constraints.</p></article>
+          <article class="process-card reveal"><span class="step">3</span><h3>Technical Refinement</h3><p>Develop the chosen direction into clear plans, elevations, roof information and annotations.</p></article>
+          <article class="process-card reveal"><span class="step">4</span><h3>Drawing Delivery</h3><p>Issue a clean, coordinated drawing set ready for review, discussion and the next project stage.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-shell reveal">
+        <div class="contact-grid">
+          <div class="contact-left">
+            <span class="eyebrow">Start a conversation</span>
+            <h2 class="contact-title">Have a space<br>to rethink?</h2>
+            <p>Tell me what you are planning. Whether it is an extension, loft, conversion, lease plan or a new residential drawing requirement, send the basics and I’ll get back to you.</p>
+            <div class="contact-details"><a class="detail-pill" href="tel:+923053581141">+92 305 3581141</a><a class="detail-pill" href="mailto:nabeel.ashraf9990@gmail.com">nabeel.ashraf9990@gmail.com</a><span class="detail-pill">UK-based</span></div>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <input id="name" type="text" placeholder="Your name" required />
+            <input id="email" type="email" placeholder="Your email" required />
+            <input id="project" type="text" placeholder="Project type / location" />
+            <textarea id="message" placeholder="Tell me briefly about your project" required></textarea>
+            <button class="send" type="submit">Send project enquiry ↗</button>
+            <span class="form-note">This opens your default email app with the enquiry pre-filled.</span>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-flex"><span>© 2026 Nabeel Ashraf / Scale & Line Studio</span><div class="footer-links"><a href="mailto:nabeel.ashraf9990@gmail.com">Email</a><a href="https://wa.me/923053581141" target="_blank" rel="noopener">WhatsApp</a><a href="#home">Back to top ↑</a></div></div></footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const project = document.getElementById('project').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent(`Portfolio enquiry${project ? ' — ' + project : ''}`);
+      const body = encodeURIComponent(`Hi Nabeel,\n\nMy name is ${name}.\nEmail: ${email}\n${project ? 'Project: ' + project + '\n' : ''}\n${message}\n\nRegards,\n${name}`);
+      window.location.href = `mailto:nabeel.ashraf9990@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
